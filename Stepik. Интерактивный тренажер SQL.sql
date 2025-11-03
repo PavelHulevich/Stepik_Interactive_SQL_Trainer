@@ -57,5 +57,19 @@ SELECT book.author, book.title,
     ,2) AS new_price
     FROM book;
 
+# Вывести автора, название  и цены тех книг, количество которых меньше 10.
+SELECT book.author, book.title, book.price
+    FROM book
+    WHERE amount < 10;
 
+# Вывести название, автора,  цену  и количество всех книг, цена которых меньше 500 или больше 600,
+# а стоимость всех экземпляров этих книг больше или равна 5000.
+SELECT book.title, book.author, book.price, book.amount
+    FROM book
+    WHERE (price < 500 OR price > 600) AND price * amount >= 5000;
 
+# Вывести название и авторов тех книг, цены которых принадлежат интервалу от 540.50 до 800 (включая границы),
+# а количество или 2, или 3, или 5, или 7.
+SELECT book.title, book.author
+    FROM book
+    WHERE price BETWEEN 540.50 AND 800 AND amount IN (2, 3, 5, 7);
